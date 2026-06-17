@@ -74,6 +74,12 @@ app.set("io",io); //use socket in controller
 
 
 //connect DB + Start server
+console.log("MONGO_URL exists:", !!process.env.MONGO_URL);
+
+console.log(
+  "MONGO_URL starts with:",
+  process.env.MONGO_URL?.slice(0, 25)
+);
 mongoose.connect(process.env.MONGO_URL) //connect to databse
 .then(()=> //success msg
 {
