@@ -12,7 +12,7 @@ const questionRoutes = require('./routes/questionRoutes'); //importing QuestionR
 const authRoutes  = require("./routes/authRoutes.js");
 
 
-app.use(cors({origin : "http://localhost:5173"})); //allows frontend to connect
+app.use(cors()); //allows frontend to connect
 app.use(express.json()); //parse JSON body without this req.body will be undefined
 
 //routes
@@ -77,9 +77,10 @@ app.set("io",io); //use socket in controller
 mongoose.connect(process.env.MONGO_URL) //connect to databse
 .then(()=> //success msg
 {
-  server.listen(process.env.PORT,()=> //start server
-  {
-    console.log(`Server is Running on ${process.env.PORT}`);
-  });
+  const PORT = process.env.PORT || 5000;
+
+  server.listen(PORT, () => {
+  console.log(`Server is Running on ${PORT}`);
+});
 })
 .catch(err => console.log(err)); //error handling

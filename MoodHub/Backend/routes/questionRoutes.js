@@ -5,7 +5,7 @@ const router = express.Router(); //creates routes = mini route handler
 const getRandomQuestion  = require("../controllers/questionController");
 
 // router.post("/",createQuestion); //add new Question
-console.log(getRandomQuestion);
+
 router.get("/never-have-i-ever",getRandomQuestion); //fetch all questions
 // router.put("/:id/vote",voteQuestion);  //update votes
 
