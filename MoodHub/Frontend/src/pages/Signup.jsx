@@ -22,14 +22,20 @@ function Signup() //signup component start
     try 
     {
       //sending post request to backend with formdata(userdetails)
-      const res = await axios.post("http://localhost:5000/api/auth/signup",formData);
+      const res = await axios.post("https://moodhub-api.onrender.com/api/auth/signup",formData);
       alert(res.data.msg); //shows backend success message
       navigate("/login"); //after signup move user to login page
     } 
-    catch (error) 
-    {
-      alert(error.response.data.msg); //shows backend error msg
-    }
+    catch (error)
+{
+  console.log(error);
+
+  alert(
+    error.response?.data?.msg ||
+    error.message ||
+    "Something went wrong"
+  );
+}
   };
 
   return(
