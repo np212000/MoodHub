@@ -12,7 +12,7 @@ const questionRoutes = require('./routes/questionRoutes'); //importing QuestionR
 const authRoutes  = require("./routes/authRoutes.js");
 
 
-app.use(cors()); //allows frontend to connect
+app.use(cors("https://moodhub-api.onrender.com")); //allows frontend to connect
 app.use(express.json()); //parse JSON body without this req.body will be undefined
 
 //routes
@@ -33,7 +33,7 @@ const server = http.createServer(app); //socket.io needs raw http server
 //socket server
 const io = new Server(server, //creates realtime socket server
   {
-    cors : {origin : "http://localhost:5173"}, //allow fronted to connet
+    cors : {origin : "https://moodhub-api.onrender.com"}, //allow fronted to connet
     methods: ["GET", "POST"],
   });
 

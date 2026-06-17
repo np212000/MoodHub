@@ -22,7 +22,7 @@ function Login() //Login component start
     try 
     {
       //sending post request to backend with formdata(userdetails)
-      const res = await axios.post("http://localhost:5000/api/auth/login",formData);
+      const res = await axios.post("https://moodhub-api.onrender.com/api/auth/login",formData);
 
       //save token
       localStorage.setItem("token",res.data.token); //storing JWT token in browser 

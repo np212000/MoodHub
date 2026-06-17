@@ -5,7 +5,7 @@ import API from "../services/api";
 import axios from "axios";
 import {io} from "socket.io-client";
 
-const socket = io("http://localhost:5000");
+const socket = io("https://moodhub-api.onrender.com");
 
 function Home()
 {
@@ -29,7 +29,7 @@ if (!currentUserId) {
 //fetch old messages
 const fetchMessages = async ()=>
 {
-  const res = await axios.get("http://localhost:5000/api/confessions");
+  const res = await axios.get("https://moodhub-api.onrender.com/api/confessions");
   setConfession(res.data);
 };
 
@@ -86,7 +86,7 @@ const fetchMessages = async ()=>
   try
   {
     await axios.post(
-      "http://localhost:5000/api/confessions",
+      "https://moodhub-api.onrender.com/api/confessions",
       {
         text,
         mood,

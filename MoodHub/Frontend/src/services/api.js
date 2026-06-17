@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL : "http://localhost:5000/api"  //backend URL //connects frontend to backend
+  baseURL : "https://moodhub-api.onrender.com/api"  //backend URL //connects frontend to backend
 });
 
 export default API;
