@@ -16,6 +16,9 @@ app.use(cors()); //allows frontend to connect
 app.use(express.json()); //parse JSON body without this req.body will be undefined
 
 //routes
+app.get("/", (req, res) => {
+  res.send("MoodHub Backend Running 🚀");
+});
 app.use("/api/auth", authRoutes); //all routes start with so actual endpoints /api/auth/signup & /api/auth/login
 app.use("/api/confessions",confessionRoutes);
 app.use("/api/movies",movieRoutes);
