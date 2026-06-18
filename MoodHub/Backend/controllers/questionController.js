@@ -2,18 +2,16 @@ const NeverHaveIEver =  require("../models/NeverHaveIEver");
 
 const getRandomQuestion = async (req,res)=>
 {
-  try 
-  {
-    const count = await NeverHaveIEver.countDocuments();
-    const random = Math.floor(Math.random() * count);
-    const question = await NeverHaveIEver.findOne().skip(random);
+  const count = await NeverHaveIEver.countDocuments();
+console.log("Question count:", count);
 
-    res.json(question);
-  } 
-  catch (error) 
-  {
-    res.status(500).json({message : error.message});
-  }
+const random = Math.floor(Math.random() * count);
+
+const question = await NeverHaveIEver.findOne().skip(random);
+
+console.log("Question:", question);
+
+res.json(question);
 };
 
 module.exports = getRandomQuestion;

@@ -5,7 +5,7 @@ import VoteCard from "../components/VoteCard";
 
 function Game()
 {
-  const [question,setQuestion] = useState(null);
+  const [question,setQuestion] = useState();
 
   //fetching All the Questions
   const fetchQuestions = async()=>
